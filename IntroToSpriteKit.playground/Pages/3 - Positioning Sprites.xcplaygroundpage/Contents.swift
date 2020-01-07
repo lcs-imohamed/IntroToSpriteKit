@@ -50,13 +50,13 @@ circle.position = CGPoint(x: 0, y: 0)
  It's not enough to simply create an *instance* of the `SKSpriteNode` class. For the sprite to appear, it must be added to the scene.
  
  - Experiment:
-    Uncomment the code on line 63 below.
-    
-    Observe the change to the node count.
+ Uncomment the code on line 63 below.
  
-    What does the position of the sprite tell you about the location of the origin in a SpriteKit scene?
+ Observe the change to the node count.
  
-    What does the appearance of the circle tell you about where a sprite is "anchored"?
+ What does the position of the sprite tell you about the location of the origin in a SpriteKit scene?
+ 
+ What does the appearance of the circle tell you about where a sprite is "anchored"?
  
  */
 
@@ -67,12 +67,12 @@ scene.addChild(circle)
  You can add many sprites based on the same image file.
  
  - Experiment:
-    Uncomment the blocks of code below, one block at a time. Run the playground after uncommenting each block.
+ Uncomment the blocks of code below, one block at a time. Run the playground after uncommenting each block.
  
-Remember that you can select a block of code by positioning your cursor at the left edge of the first line, then hold down the **Shift** key, then press the **↓** key.
+ Remember that you can select a block of code by positioning your cursor at the left edge of the first line, then hold down the **Shift** key, then press the **↓** key.
  
-Once you have selected the block of code, press the **Command** and / keys at the same time to toggle the comments off all at once.
-
+ Once you have selected the block of code, press the **Command** and / keys at the same time to toggle the comments off all at once.
+ 
  */
 
 //// Add another circle to the right of the origin
@@ -97,7 +97,7 @@ scene.addChild(star)
 
 /*:
  - Callout(Reflect):
-     Does the co-ordinate system for a SpriteKit scene work like you expected?
+ Does the co-ordinate system for a SpriteKit scene work like you expected?
  
  ### Exercises
  
@@ -117,17 +117,21 @@ scene.addChild(star)
 
 // Exercise 1: Write your code below.
 let star2 = SKSpriteNode(imageNamed:"star")
-star2.position = CGPoint(x: scene.size.width / 2 y: scene.size.hieght/ 2)
+star2.position = CGPoint(x: scene.size.width / 2, y: scene.size.height / 2)
 scene.addChild(star2)
 
 // Exercise 2: Write your code below.
-
+let circle5 = SKSpriteNode(imageNamed:"circle")
+circle5.position = CGPoint(x: scene.size.width, y:scene.size.height)
+scene.addChild(circle5)
 
 // Exercise 3: Write your code below.
-
+let square = SKSpriteNode(imageNamed:"square")
+square.position = CGPoint(x: scene.size.width / 2, y:scene.size.height)
+scene.addChild(square)
 
 /*:
-
+ 
  [Previous: Creating a SpriteKit Scene](@previous) | Page 3 | [Next: Physics Engine](@next)
  
  
