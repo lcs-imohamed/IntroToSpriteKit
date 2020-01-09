@@ -38,7 +38,7 @@ PlaygroundSupport.PlaygroundPage.current.liveView = view
  Run the code to see this scene.
  
  - Callout(Consider):
-     What if we could have the boulder roll down the hill?
+ What if we could have the boulder roll down the hill?
  
  */
 
@@ -69,40 +69,38 @@ for i in 1...3 {
  
  - Callout(Experiment):
  Remove the comments for each block of code below, one by one. Run the playground after each comment you remove. What happens?
-
+ 
  Remember that you can select a block of code by positioning your cursor at the left edge of the first line, then hold down the **Shift** key, then press the **↓** key.
-  
+ 
  Once you have selected the block of code, press the **Command** and / keys at the same time to toggle the comments off all at once.
  
  */
-//// Add a physics body for the hill
-//hill.physicsBody = SKPhysicsBody(texture: hill.texture!,
-//                                 alphaThreshold: 0.5,
-//                                 size: hill.size)
-//hill.physicsBody?.isDynamic = false // Hill will not move (not impacted by physics)
+//// Add a physics  body for the hill
+hill.physicsBody = SKPhysicsBody(texture: hill.texture!,
+                                 alphaThreshold: 0.5,
+                                 size: hill.size)
+hill.physicsBody?.isDynamic = false // Hill will not move (not impacted by physics)
 
 //// Add a physics body for the boulder
-//boulder.physicsBody = SKPhysicsBody(circleOfRadius: boulder.size.width * 0.5)
+boulder.physicsBody = SKPhysicsBody(circleOfRadius: boulder.size.width * 0.5)
 
 //// Add a physics body for all nodes with identifier "one of the crates"
-//for node in scene.children {
-//
-//    // Only look at nodes of type SKSpriteNode
-//    if let thisNode = node as? SKSpriteNode {
-//
-//        // Only the crates
-//        if thisNode.name == "one of the crates" {
-//
-//            // Add a physics body
-//            thisNode.physicsBody = SKPhysicsBody(rectangleOf: thisNode.size)
-//        }
-//
-//    }
-//
-//}
+for node in scene.children {
+    //    // Only look at nodes of type SKSpriteNode
+    if let thisNode = node as? SKSpriteNode {
+        //        // Only the crates
+        if thisNode.name == "one of the crates" {
+            //
+            //            // Add a physics body
+            thisNode.physicsBody = SKPhysicsBody(rectangleOf: thisNode.size)
+        }
+        //
+    }
+    //
+}
 
 //// Configure the view so that physics body edges are visible
-//view.showsPhysics = true
+view.showsPhysics = true
 
 /*:
  ### Other types of physics bodies
@@ -120,24 +118,24 @@ for i in 1...3 {
  The **edge-loop** physics body is a *static*, volume-less physics body. As the name implies, this type of body defines only the edges of the shape. The body has no mass, cannot collide with other edge loop bodies, and is not moved by the physics engine (but can be moved by *actions* – more on that later).
  
  When you need a boundary for your game or animation – the ground, a wall – you will use an edge-loop body to define a collision area.
-   
+ 
  ![example](types-of-physics-bodies.png "Types of physics bodies")
  
-  *Image from:* [2D Apple Games by Tutorials, raywenderlich.com](https://store.raywenderlich.com/products/2d-apple-games-by-tutorials)
-
- - Callout(Experiment):
-    Try uncommenting the section below.
+ *Image from:* [2D Apple Games by Tutorials, raywenderlich.com](https://store.raywenderlich.com/products/2d-apple-games-by-tutorials)
  
-    Now what happens?
-
+ - Callout(Experiment):
+ Try uncommenting the section below.
+ 
+ Now what happens?
+ 
  */
 
 //// Make an edge loop at the boundaries of the scene
-//scene.physicsBody = SKPhysicsBody(edgeLoopFrom: scene.frame)
+scene.physicsBody = SKPhysicsBody(edgeLoopFrom: scene.frame)
 
 /*:
  - Callout(Reflect):
-     What type of animations could you imagine creating using the SpriteKit Physics engine? What types of games?
+ What type of animations could you imagine creating using the SpriteKit Physics engine? What types of games?
  
  ### Refining the Simulation
  
@@ -154,7 +152,7 @@ for i in 1...3 {
  The SKPhysicsBody class [has properties](https://developer.apple.com/documentation/spritekit/skphysicsbody) (see "Defining a Physics Body’s Physical Properties") that let you [set the characteristics of a physics body](https://developer.apple.com/documentation/spritekit/skphysicsbody/configuring_a_physics_body).
  
  - Experiment:
-     Uncomment the block of code below that adjusts the mass of the boulder, so that when the boulder rolls down the hill, it achieves an apppropriate amount of destruction with the crates.
+ Uncomment the block of code below that adjusts the mass of the boulder, so that when the boulder rolls down the hill, it achieves an apppropriate amount of destruction with the crates.
  
  */
 // What is the current mass of a crate?
@@ -164,7 +162,7 @@ scene.childNode(withName: "one of the crates")?.physicsBody?.mass
 boulder.physicsBody?.mass
 
 //// Change the boulder's mass
-//boulder.physicsBody?.mass = 0.05
+boulder.physicsBody?.mass = 10
 
 /*:
  ### Changing the Direction of Gravity
@@ -172,13 +170,13 @@ boulder.physicsBody?.mass
  While it doesn't make much sense for this scenario, SpriteKit's physics engine is not limited to gravity always pulling "down" in a scene.
  
  - Experiment:
-    Uncomment the block of code below.
+ Uncomment the block of code below.
  
-    Run the playground.
+ Run the playground.
  
-    What happens?
+ What happens?
  
-    Once you've observed the results, comment the code out again, so that gravity pulls objects down, vertically, in the scene.
+ Once you've observed the results, comment the code out again, so that gravity pulls objects down, vertically, in the scene.
  
  */
 // What is the current direction of gravity in the scene?
@@ -205,15 +203,31 @@ scene.physicsWorld.gravity
 
 // Exercise 1: Write your code below.
 
+// Change bounciness
+boulder.physicsBody?.restitution = 0.5
+
 // Exercise 2: Write your code below.
+//for node in scene.children {
+//    // Only look at nodes of type SKSpriteNode
+//    if let thisNode = node as? SKSpriteNode {
+//        // Only the crates
+//        if thisNode.name == "one of the crates" {
+//change bounciness
+//            thisNode.physicsBody?.restitution = 1.0
 
+//        }
+//    }
+//}
 // Exercise 3: Write your code below.
-
+//change hill friction
+//hill.physicsBody?.friction = 0
 // Exercise 4: Write your code below.
+//make gravity pull upwards
+scene.physicsWorld.gravity = CGVector(dx: 0, dy: 9.80)
 
 
 /*:
-
+ 
  [Previous: Positioning Sprites](@previous) | Page 4 | [Next: Applying Actions to Nodes](@next)
  
  
