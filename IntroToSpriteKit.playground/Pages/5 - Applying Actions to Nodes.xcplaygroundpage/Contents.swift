@@ -176,12 +176,22 @@ circle3.run(waitAndThenRepeatedlyFadeOutAndIn)
  */
 
 // Exercise 1: Write your code below.
-let actionReallyLongWaitThenMoveRight = SKAction
-// Exercise 2: Write your code below.
+let moveRight = SKAction.moveBy(x: 50, y:0, duration:1.0)
+let actionTwentySecondWait = SKAction.wait(forDuration: 20.0)
+let actionReallyLongWaitThenMoveRight = SKAction.sequence([actionTwentySecondWait, moveRight])
+circle1.run(actionReallyLongWaitThenMoveRight)
 
+// Exercise 2: Write your code below.
+let moveLeft = SKAction.moveBy(x: -50, y:0, duration:1.0)
+let actionReallyLongWaitThenMoveUpAndLeft = SKAction.sequence([actionTwentySecondWait, actionUpwardsMovement, moveLeft])
+circle2.run(actionReallyLongWaitThenMoveUpAndLeft)
 
 // Exercise 3: Write your code below.
 
+//let actionColorChange = \
+let actionThirtySecondWait = SKAction.wait(forDuration: 30.0)
+let actionMyChoiceSequence = SKAction.sequence([actionThirtySecondWait, actionFadeIn, actionScaleUp, moveLeft, moveRight])
+circle2.run(actionMyChoiceSequence)
 
 /*:
 
