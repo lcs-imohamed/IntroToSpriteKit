@@ -34,6 +34,7 @@ hill.physicsBody = SKPhysicsBody(texture: hill.texture!,
                                  size: hill.size)
 hill.physicsBody?.isDynamic = false // Hill will not move (not impacted by physics)
 
+
 // Make an edge loop at the boundaries of the scene
 scene.physicsBody = SKPhysicsBody(edgeLoopFrom: scene.frame)
 
@@ -58,25 +59,26 @@ scene.physicsBody = SKPhysicsBody(edgeLoopFrom: scene.frame)
  */
 
 //// Create a label node (must reference a font installed on the system)
-//let title = SKLabelNode(fontNamed: "Helvetica Neue Light")
-//title.fontSize = 24
-//title.fontColor = .orange
-//title.zPosition = 10        // Make sure text appears in front of other nodes
-//title.text = "Letter Slide"
-//title.position = CGPoint(x: scene.size.width - 100, y: scene.size.height - 50)
-//scene.addChild(title)
+let title = SKLabelNode(fontNamed: "Helvetica Neue Light")
+title.fontSize = 24
+title.fontColor = .orange
+title.zPosition = 10        // Make sure text appears in front of other nodes
+title.text = "Letter Slide"
+title.position = CGPoint(x: scene.size.width - 100, y: scene.size.height - 50)
+scene.addChild(title)
 
 //// Create a letter that will fall down the slide
-//let letter = SKLabelNode(fontNamed: "Rockwell")
-//letter.fontSize = 36
-//letter.fontColor = .white
-//letter.text = "T"
-//letter.position = CGPoint(x: 56, y: scene.size.height - 50)
-//// Physics body is just slightly above the baseline of the text
-//letter.physicsBody = SKPhysicsBody(circleOfRadius: 15,
-//                                   center: CGPoint(x: 0, y: 10))
+let letter = SKLabelNode(fontNamed: "Rockwell")
+letter.fontSize = 36
+letter.fontColor = .white
+letter.text = "T"
+letter.position = CGPoint(x: 56, y: scene.size.height - 50)
+// Physics body is just slightly above the baseline of the text
+letter.physicsBody = SKPhysicsBody(circleOfRadius: 15,
+                                   center: CGPoint(x: 0, y: 10))
+letter.physicsBody
 //// Add the letter to the scene
-//scene.addChild(letter)
+scene.addChild(letter)
 
 /*:
  
@@ -95,9 +97,62 @@ scene.physicsBody = SKPhysicsBody(edgeLoopFrom: scene.frame)
  */
 
 // Exercise: Write your code below.
+let letter2 = SKLabelNode(fontNamed: "Papyrus")
+letter2.fontSize = 36
+letter2.fontColor = .white
+letter2.text = "Y"
+letter2.position = CGPoint(x: 4, y: 30)
+//letter2.physicsBody = SKPhysicsBody(circleOfRadius: 20.0)
+letter2.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 25, height: 50), center: CGPoint(x: 0, y: 20))
+scene.addChild(letter2)
 
+let letter3 = SKLabelNode(fontNamed: "Papyrus")
+letter3.fontSize = 36
+letter3.fontColor = .white
+letter3.text = "A"
+letter3.position = CGPoint(x: 440, y: 30)
+letter3.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 25, height: 50), center: CGPoint(x: 0, y: 20))
+scene.addChild(letter3)
 
+let letter4 = SKLabelNode(fontNamed: "Papyrus")
+letter4.fontSize = 36
+letter4.fontColor = .white
+letter4.text = "N"
+letter4.position = CGPoint(x: 440, y: 30)
+letter4.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 25, height: 50), center: CGPoint(x: 0, y: 20))
+scene.addChild(letter4)
 
+let letter5 = SKLabelNode(fontNamed: "Papyrus")
+letter5.fontSize = 36
+letter5.fontColor = .white
+letter5.text = "K"
+letter5.position = CGPoint(x: 440, y: 30)
+letter5.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 25, height: 50), center: CGPoint(x: 0, y: 20))
+scene.addChild(letter5)
+
+let letter6 = SKLabelNode(fontNamed: "Papyrus")
+letter6.fontSize = 36
+letter6.fontColor = .white
+letter6.text = "E"
+letter6.position = CGPoint(x: 440, y: 30)
+letter6.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 25, height: 50), center: CGPoint(x: 0, y: 20))
+scene.addChild(letter6)
+
+let letter7 = SKLabelNode(fontNamed: "Papyrus")
+letter7.fontSize = 36
+letter7.fontColor = .white
+letter7.text = "E"
+letter7.position = CGPoint(x: 440, y: 30)
+letter7.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 25, height: 50), center: CGPoint(x: 0, y: 20))
+scene.addChild(letter7)
+
+let letter8 = SKLabelNode(fontNamed: "Papyrus")
+letter8.fontSize = 36
+letter8.fontColor = .white
+letter8.text = "S"
+letter8.position = CGPoint(x: 440, y: 30)
+letter8.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 25, height: 50), center: CGPoint(x: 0, y: 20))
+scene.addChild(letter8)
 /*:
 
  [Previous: Adding Nodes Repeatedly](@previous) | Page 7 | [Next: Animating a Sprite](@next)
