@@ -152,6 +152,15 @@ let rocket = SKSpriteNode(imageNamed: "rocket.png")
 rocket.position = CGPoint(x: 300, y: 50)
 scene.addChild(rocket)
 
+//Add textures to scene in order to animate
+var blastOffTextures : [SKTexture] = []
+blastOffTextures.append(SKTexture(imageNamed: "rocket_0.png"))
+blastOffTextures.append(SKTexture(imageNamed: "rocket_1.png"))
+blastOffTextures.append(SKTexture(imageNamed: "rocket_2.png"))
+blastOffTextures.append(SKTexture(imageNamed: "rocket_3.png"))
+blastOffTextures.append(SKTexture(imageNamed: "rocket_4.png"))
+blastOffTextures.append(SKTexture(imageNamed: "rocket_5.png"))
+
 
 /*:
  
