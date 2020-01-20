@@ -152,6 +152,10 @@ let rocket = SKSpriteNode(imageNamed: "rocket.png")
 rocket.position = CGPoint(x: 300, y: 50)
 scene.addChild(rocket)
 
+let fireBall = SKSpriteNode(imageNamed: "spark.png")
+fireBall.position = CGPoint(x: 300, y: 30)
+scene.addChild(fireBall)
+
 //Add textures to scene in order to animate
 var blastOffTextures : [SKTexture] = []
 blastOffTextures.append(SKTexture(imageNamed: "rocket_0.png"))
@@ -160,6 +164,10 @@ blastOffTextures.append(SKTexture(imageNamed: "rocket_2.png"))
 blastOffTextures.append(SKTexture(imageNamed: "rocket_3.png"))
 blastOffTextures.append(SKTexture(imageNamed: "rocket_4.png"))
 blastOffTextures.append(SKTexture(imageNamed: "rocket_5.png"))
+
+let actionBlastOffAnimation = SKAction.animate(with: blastOffTextures, timePerFrame: 0.2)
+
+
 
 
 /*:

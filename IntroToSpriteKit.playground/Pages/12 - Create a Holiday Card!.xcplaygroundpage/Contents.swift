@@ -31,6 +31,12 @@ view.presentScene(scene)
 // Show the view in the live view area
 PlaygroundSupport.PlaygroundPage.current.liveView = view
 
+//Add snow particle effect
+if let snowstorm = SKEmitterNode(fileNamed: "Snow") {
+    snowstorm.position = CGPoint(x: 200 , y: 200)
+    scene.addChild(snowstorm)
+}
+
 /*:
 ### Useful Resources
 
