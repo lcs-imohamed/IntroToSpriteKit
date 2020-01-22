@@ -26,7 +26,7 @@ background.run(scaleUpAction)
 PlaygroundSupport.PlaygroundPage.current.liveView = view
 
 //Add snow particle effect
-if let rain = SKEmitterNode(fileNamed: "Snow") {
+if let snowstorm = SKEmitterNode(fileNamed: "Snow") {
     snowstorm.position = CGPoint(x: scene.size.width / 2 , y: scene.size.height)
     scene.addChild(snowstorm)
 }
@@ -37,6 +37,22 @@ girl.position = CGPoint(x: 50, y: 70)
 scene.addChild(girl)
 
 //Create walking textures
-var walkingTextures
-blastOffTextures.append(SKTexture(imageNamed: "rocket_0.png"))
+var walkingTextures : [SKTexture] = []
+walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_02"))
+walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_3"))
+walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_03"))
+walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_04"))
+walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_05"))
+walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_06"))
+walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_07"))
+walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_08"))
+walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_09"))
+walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_10"))
+
+   
+//Create animation to walk
+let actionWalkingAnimation = SKAction.animate(with: walkingTextures, timePerFrame: 0.2, resize: true, restore: true)
+let actionMoveForward = SKAction.moveBy(x: 10, y: 0, duration: 0.2)
+let actionWalkAndMove = SKAction.group([actionWalkingAnimation,actionMoveForward])
+    girl.run(actionWalkAndMove)
 //: [Next](@next)
