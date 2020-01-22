@@ -36,22 +36,22 @@ let girl = SKSpriteNode(imageNamed: "2d-sprite-png-10_14")
 girl.position = CGPoint(x: 50, y: 70)
 scene.addChild(girl)
 
-//Create walking textures
-var walkingTextures : [SKTexture] = []
-walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_02"))
-walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_3"))
-walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_03"))
-walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_04"))
-walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_05"))
-walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_06"))
-walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_07"))
-walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_08"))
-walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_09"))
-walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_10"))
+//Create walking textures for girl
+var walkingTexturesGirl : [SKTexture] = []
+walkingTexturesGirl.append(SKTexture(imageNamed: "2d-sprite-png-10_02"))
+walkingTexturesGirl.append(SKTexture(imageNamed: "2d-sprite-png-10_3"))
+walkingTexturesGirl.append(SKTexture(imageNamed: "2d-sprite-png-10_03"))
+walkingTexturesGirl.append(SKTexture(imageNamed: "2d-sprite-png-10_04"))
+walkingTexturesGirl.append(SKTexture(imageNamed: "2d-sprite-png-10_05"))
+walkingTexturesGirl.append(SKTexture(imageNamed: "2d-sprite-png-10_06"))
+walkingTexturesGirl.append(SKTexture(imageNamed: "2d-sprite-png-10_07"))
+walkingTexturesGirl.append(SKTexture(imageNamed: "2d-sprite-png-10_08"))
+walkingTexturesGirl.append(SKTexture(imageNamed: "2d-sprite-png-10_09"))
+walkingTexturesGirl.append(SKTexture(imageNamed: "2d-sprite-png-10_10"))
 
 
-//Create action using walk textures.
-let actionWalkingAnimation = SKAction.animate(with: walkingTextures, timePerFrame: 0.2, resize: true, restore: true)
+//Create action using walk textures for girl sprite.
+let actionWalkingAnimation = SKAction.animate(with: walkingTexturesGirl, timePerFrame: 0.2, resize: true, restore: true)
 //Move forward when walking
 let actionMoveForward = SKAction.moveBy(x: 10, y: 0, duration: 0.2)
 
@@ -67,4 +67,11 @@ let actionWalkAndMoveSevenTimes = SKAction.repeat(actionWalkAndMove, count: 7)
 //Run the animation
 girl.run(actionWalkAndMove)
 
+//Add boy sprite to scene and position
+let boy = SKSpriteNode(imageNamed: "animate-drawing-guy-walking-1_02")
+boy.position = CGPoint(x: 350, y: 70)
+scene.addChild(boy)
+
+let scaleDownAction = SKAction.scale(to: 0.4, duration: 0)
+boy.run(scaleDownAction)
 //: [Next](@next)
