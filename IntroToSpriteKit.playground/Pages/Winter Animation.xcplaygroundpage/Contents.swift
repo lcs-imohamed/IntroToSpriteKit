@@ -49,10 +49,22 @@ walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_08"))
 walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_09"))
 walkingTextures.append(SKTexture(imageNamed: "2d-sprite-png-10_10"))
 
-   
-//Create animation to walk
+
+//Create action using walk textures.
 let actionWalkingAnimation = SKAction.animate(with: walkingTextures, timePerFrame: 0.2, resize: true, restore: true)
+//Move forward when walking
 let actionMoveForward = SKAction.moveBy(x: 10, y: 0, duration: 0.2)
-let actionWalkAndMove = SKAction.group([actionWalkingAnimation,actionMoveForward])
-    girl.run(actionWalkAndMove)
+
+//Move forward eight times when walking
+let actionMoveForwardEightTimes = SKAction.repeat(actionMoveForward, count: 8)
+
+//Combine walking animation and move forward to walk and move forward
+let actionWalkAndMove = SKAction.group([actionWalkingAnimation, actionMoveForwardEightTimes])
+
+//Repeat the walk and move animation 7 times
+let actionWalkAndMoveSevenTimes = SKAction.repeat(actionWalkAndMove, count: 7)
+
+//Run the animation
+girl.run(actionWalkAndMove)
+
 //: [Next](@next)
