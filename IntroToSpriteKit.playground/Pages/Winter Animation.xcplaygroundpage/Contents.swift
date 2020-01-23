@@ -107,6 +107,8 @@ let actionBoyWalkAndMoveSevenTimes = SKAction.repeat(actionBoyWalkAndMove, count
 //Run the animation
 boy.run(actionBoyWalkAndMove)
 
+
+
 //add heart sprite to scene
 let heart = SKSpriteNode(imageNamed: "heart_9_3")
 heart.position = CGPoint(x: 220, y: scene.size.height / 2)
@@ -115,4 +117,20 @@ scene.addChild(heart)
 //change heart size
 let scaleDownHeartAction = SKAction.scale(to: 0.5, duration: 0)
 heart.run(scaleDownHeartAction)
+
+//add heart textures
+var heartTextures : [SKTexture] = []
+heartTextures.append(SKTexture(imageNamed: "heart_9_02"))
+heartTextures.append(SKTexture(imageNamed: "heart_9_03"))
+heartTextures.append(SKTexture(imageNamed: "heart_9_04"))
+
+//wait until other animations have finished
+let actionHeartWait(duration: 2)
+//create action using heart textures
+
+let actionHeartGrowingAnimation = SKAction.animate(with: heartTextures, timePerFrame: 0.2, resize: true, restore: true)
+
+//have heart run action
+heart.run(actionHeartGrowingAnimation)
+//(forDuration duration: TimeInterval) -> SKAction
 //: [Next](@next)
