@@ -12,13 +12,13 @@ let view = SKView(frame: frame)
 view.showsNodeCount = true
 view.presentScene(scene)
 
-//Add winter background to the scene
-let background = SKSpriteNode(imageNamed: "winterAnimationImage")
+//Add city background to the scene
+let background = SKSpriteNode(imageNamed: "cityScapeBackGround")
 background.position = CGPoint(x:scene.size.width / 2, y:scene.size.height / 2)
 scene.addChild(background)
 
 //Increase background size
-let scaleUpAction = SKAction.scale(to: 1.78, duration: 0)
+let scaleUpAction = SKAction.scale(to: 2.25, duration: 0)
 background.run(scaleUpAction)
 
 
@@ -26,10 +26,11 @@ background.run(scaleUpAction)
 PlaygroundSupport.PlaygroundPage.current.liveView = view
 
 //Add snow particle effect
-if let snowstorm = SKEmitterNode(fileNamed: "Snow") {
-    snowstorm.position = CGPoint(x: scene.size.width / 2 , y: scene.size.height)
-    scene.addChild(snowstorm)
+if let rainstorm = SKEmitterNode(fileNamed: "Rain") {
+    rainstorm.position = CGPoint(x: scene.size.width / 2 , y: scene.size.height)
+    scene.addChild(rainstorm)
 }
+
 
 //Add girl sprite to scene and position
 let girl = SKSpriteNode(imageNamed: "2d-sprite-png-10_14")
@@ -105,4 +106,13 @@ let actionBoyWalkAndMoveSevenTimes = SKAction.repeat(actionBoyWalkAndMove, count
 
 //Run the animation
 boy.run(actionBoyWalkAndMove)
+
+//add heart sprite to scene
+let heart = SKSpriteNode(imageNamed: "heart_9_3")
+heart.position = CGPoint(x: 220, y: scene.size.height / 2)
+scene.addChild(heart)
+
+//change heart size
+let scaleDownHeartAction = SKAction.scale(to: 0.5, duration: 0)
+heart.run(scaleDownHeartAction)
 //: [Next](@next)
