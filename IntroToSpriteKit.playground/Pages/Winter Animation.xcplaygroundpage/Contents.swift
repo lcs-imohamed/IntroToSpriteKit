@@ -2,6 +2,8 @@
 // Required frameworks
 import PlaygroundSupport    // Allows playground to show live view
 import SpriteKit            // Provides 2D graphics classes
+import AVFoundation         // allows background music to play
+
 
 // Define the animation size, scene, and scene color
 let frame = CGRect(x: 0, y: 0, width: 400, height: 300)
@@ -111,7 +113,7 @@ boy.run(actionBoyWalkAndMove)
 
 //add heart sprite to scene
 let heart = SKSpriteNode(imageNamed: "heart_9_3")
-heart.position = CGPoint(x: 220, y: scene.size.height / 2)
+heart.position = CGPoint(x: 220, y: 210)
 scene.addChild(heart)
 
 
@@ -123,6 +125,7 @@ heart.run(scaleDownHeartAction)
 
 //add heart textures
 var heartTextures : [SKTexture] = []
+heartTextures.append(SKTexture(imageNamed: "heart_9_3"))
 heartTextures.append(SKTexture(imageNamed: "heart_9_02"))
 heartTextures.append(SKTexture(imageNamed: "heart_9_03"))
 heartTextures.append(SKTexture(imageNamed: "heart_9_04"))
@@ -132,18 +135,20 @@ heartTextures.append(SKTexture(imageNamed: "heart_9_04"))
 
 //heart.run(actionHeartWait)
 
-let actionHeartGrowingAnimation = SKAction.animate(with: heartTextures, timePerFrame: 0.2, resize: true, restore: true)
+let actionHeartGrowingAnimation = SKAction.animate(with: heartTextures, timePerFrame: 1, resize: true, restore: true)
+
+let actionHeartGrowFiveTimes = SKAction.repeat(actionHeartGrowingAnimation, count: 5)
 
 
 
 //have heart run action
-heart.run(actionHeartGrowingAnimation)
+heart.run(actionHeartGrowFiveTimes)
 //(forDuration duration: TimeInterval) -> SKAction
 
 //add valentines text to screen
 let title = SKLabelNode(fontNamed: "Helvetica Neue Light")
 title.fontSize = 24
-title.fontColor = .red
+title.fontColor = .blue
 title.zPosition = 10        // Make sure text appears in front of other nodes
 title.text = "Happy Valentines Day"
 title.position = CGPoint(x: scene.size.width - 250, y: scene.size.height - 50)
