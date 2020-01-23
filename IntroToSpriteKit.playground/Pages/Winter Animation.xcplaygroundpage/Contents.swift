@@ -32,8 +32,24 @@ if let rainstorm = SKEmitterNode(fileNamed: "Rain") {
     rainstorm.position = CGPoint(x: scene.size.width / 2 , y: scene.size.height)
     scene.addChild(rainstorm)
 }
+// Create a variable to store a background music player instance
+var backgroundMusic: AVAudioPlayer?
 
+// Get a reference to the mp3 file in playground Resources folder
+let backgroundMusicFilePath = Bundle.main.path(forResource: "backgroundMusic.mp3", ofType: nil)!
 
+// Convert the file path string to a URL (Uniform Resource Locator)
+let backgroundMusicFileURL = URL(fileURLWithPath: backgroundMusicFilePath)
+
+// Attempt to open and play the file at the given URL
+do {
+    backgroundMusic = try AVAudioPlayer(contentsOf: backgroundMusicFileURL)
+    backgroundMusic?.play()
+} catch {
+    // Do nothing if the sound file could not be played
+}
+
+    
 //Add girl sprite to scene and position
 let girl = SKSpriteNode(imageNamed: "2d-sprite-png-10_14")
 girl.position = CGPoint(x: 50, y: 70)
