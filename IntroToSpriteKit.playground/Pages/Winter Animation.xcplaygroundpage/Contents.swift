@@ -45,21 +45,21 @@ walkingTexturesGirl.append(SKTexture(imageNamed: "2d-sprite-png-10_04"))
 walkingTexturesGirl.append(SKTexture(imageNamed: "2d-sprite-png-10_05"))
 walkingTexturesGirl.append(SKTexture(imageNamed: "2d-sprite-png-10_06"))
 walkingTexturesGirl.append(SKTexture(imageNamed: "2d-sprite-png-10_07"))
-walkingTexturesGirl.append(SKTexture(imageNamed: "2d-sprite-png-10_08"))
-walkingTexturesGirl.append(SKTexture(imageNamed: "2d-sprite-png-10_09"))
-walkingTexturesGirl.append(SKTexture(imageNamed: "2d-sprite-png-10_10"))
+
 
 
 //Create action using walk textures for girl sprite.
 let actionWalkingAnimation = SKAction.animate(with: walkingTexturesGirl, timePerFrame: 0.2, resize: true, restore: true)
+//repeat walk animation twice
+let actionWalkTwoTimes = SKAction.repeat(actionWalkingAnimation, count: 2)
 //Move forward when walking
 let actionMoveForward = SKAction.moveBy(x: 10, y: 0, duration: 0.2)
 
-//Move forward eight times when walking
-let actionMoveForwardEightTimes = SKAction.repeat(actionMoveForward, count: 8)
+//Move forward fifteen times when walking
+let actionMoveForwardFifteenTimes = SKAction.repeat(actionMoveForward, count: 15)
 
 //Combine walking animation and move forward to walk and move forward
-let actionWalkAndMove = SKAction.group([actionWalkingAnimation, actionMoveForwardEightTimes])
+let actionWalkAndMove = SKAction.group([actionWalkTwoTimes, actionMoveForwardFifteenTimes])
 
 //Repeat the walk and move animation 7 times
 let actionWalkAndMoveSevenTimes = SKAction.repeat(actionWalkAndMove, count: 7)
@@ -72,6 +72,33 @@ let boy = SKSpriteNode(imageNamed: "animate-drawing-guy-walking-1_02")
 boy.position = CGPoint(x: 350, y: 70)
 scene.addChild(boy)
 
+//decrease size of boy sprite
 let scaleDownAction = SKAction.scale(to: 0.4, duration: 0)
 boy.run(scaleDownAction)
+
+//add walking textures for walking animation of boy sprite
+var walkingTexturesBoy : [SKTexture] = []
+walkingTexturesBoy.append(SKTexture(imageNamed: "animate-drawing-guy-walking-1_03"))
+walkingTexturesBoy.append(SKTexture(imageNamed: "animate-drawing-guy-walking-1_04"))
+walkingTexturesBoy.append(SKTexture(imageNamed: "animate-drawing-guy-walking-1_05"))
+walkingTexturesBoy.append(SKTexture(imageNamed: "animate-drawing-guy-walking-1_06"))
+walkingTexturesBoy.append(SKTexture(imageNamed: "animate-drawing-guy-walking-1_07"))
+walkingTexturesBoy.append(SKTexture(imageNamed: "animate-drawing-guy-walking-1_08"))
+
+//Create action using walk textures for boy sprite.
+let actionBoyWalkingAnimation = SKAction.animate(with: walkingTexturesBoy, timePerFrame: 0.2, resize: true, restore: true)
+//Move forward when walking
+let actionBoyMoveForward = SKAction.moveBy(x: -10, y: 0, duration: 0.2)
+
+//Move forward eight times when walking
+let actionBoyMoveForwardEightTimes = SKAction.repeat(actionBoyMoveForward, count: 8)
+
+//Combine walking animation and move forward to walk and move forward
+let actionBoyWalkAndMove = SKAction.group([actionBoyWalkingAnimation, actionBoyMoveForwardEightTimes])
+
+//Repeat the walk and move animation 7 times
+let actionBoyWalkAndMoveSevenTimes = SKAction.repeat(actionBoyWalkAndMove, count: 7)
+
+//Run the animation
+boy.run(actionBoyWalkAndMove)
 //: [Next](@next)
